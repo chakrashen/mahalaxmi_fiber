@@ -5,39 +5,39 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
 
 :root {
-  /* Color Palette - Refined Light-Dark (Slate Charcoal) Luxury Palette */
-  --bg-main: #141a24;
-  --bg-surface: #1b2332;
-  --bg-surface-elevated: #242e42;
-  --bg-card: rgba(27, 35, 50, 0.72);
-  --bg-card-hover: rgba(36, 46, 66, 0.9);
-  --bg-glass: rgba(20, 26, 36, 0.85);
+  /* Color Palette - Lighter Slate Dark Aesthetic */
+  --bg-main: #222a3a;
+  --bg-surface: #2c364b;
+  --bg-surface-elevated: #36425c;
+  --bg-card: rgba(44, 54, 75, 0.8);
+  --bg-card-hover: rgba(54, 66, 92, 0.95);
+  --bg-glass: rgba(34, 42, 58, 0.88);
   
-  --gold-primary: #d4af37;
-  --gold-glow: #f3ce5e;
-  --gold-light: #fae8a4;
-  --gold-dark: #a67c1e;
-  --gold-gradient: linear-gradient(135deg, #f9e295 0%, #d4af37 50%, #aa7c11 100%);
-  --gold-glow-shadow: 0 0 25px rgba(212, 175, 55, 0.35);
+  --gold-primary: #e5b842;
+  --gold-glow: #ffd54f;
+  --gold-light: #fef08a;
+  --gold-dark: #b8861b;
+  --gold-gradient: linear-gradient(135deg, #fef08a 0%, #e5b842 50%, #b8861b 100%);
+  --gold-glow-shadow: 0 0 25px rgba(229, 184, 66, 0.4);
 
   --accent-emerald: #10b981;
   --accent-cyan: #06b6d4;
   --accent-rose: #f43f5e;
   --accent-purple: #a855f7;
 
-  --text-primary: #f8fafc;
-  --text-secondary: #cbd5e1;
-  --text-muted: #94a3b8;
-  --text-gold: #f3ce5e;
+  --text-primary: #ffffff;
+  --text-secondary: #e2e8f0;
+  --text-muted: #cbd5e1;
+  --text-gold: #ffd54f;
 
-  --border-subtle: rgba(255, 255, 255, 0.12);
-  --border-gold: rgba(212, 175, 55, 0.35);
-  --border-gold-strong: rgba(212, 175, 55, 0.65);
+  --border-subtle: rgba(255, 255, 255, 0.18);
+  --border-gold: rgba(229, 184, 66, 0.45);
+  --border-gold-strong: rgba(229, 184, 66, 0.75);
 
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
-  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
-  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.45);
-  --shadow-glow: 0 0 30px rgba(212, 175, 55, 0.22);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.18);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.25);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.35);
+  --shadow-glow: 0 0 30px rgba(229, 184, 66, 0.25);
 
   /* Typography */
   --font-heading: 'Cinzel', serif;
