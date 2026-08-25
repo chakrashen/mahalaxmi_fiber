@@ -446,20 +446,21 @@ function initCalculator() {
   updateCalculation();
 }
 
-// Pre-fill quote for a specific fabric and scroll to inquiry
+// Pre-fill quote for a specific fabric and navigate to swatches page
 window.requestQuoteFor = function(fabricName) {
-  const reqInput = document.getElementById('inquiryFabricName');
-  const section = document.getElementById('inquirySection');
-  if (reqInput) {
-    reqInput.value = `Sample & Bulk Quote Request for: ${fabricName}`;
-  }
-  if (section) {
-    section.scrollIntoView({ behavior: 'smooth' });
-  }
+  window.location.href = `swatches.html?fabric=${encodeURIComponent(fabricName)}`;
 };
 
 // Inquiry Form Submission & Toast
 function initInquiryForm() {
+  // Auto-populate fabric name from URL query parameter if present on swatches page
+  const urlParams = new URLSearchParams(window.location.search);
+  const fabricParam = urlParams.get('fabric');
+  const reqInput = document.getElementById('inquiryFabricName');
+  if (reqInput && fabricParam) {
+    reqInput.value = fabricParam;
+  }
+
   const form = document.getElementById('rfqForm');
   if (!form) return;
 
