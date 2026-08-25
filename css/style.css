@@ -5,39 +5,39 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
 
 :root {
-  /* Color Palette - Lighter Slate with Increased Background Opacity */
-  --bg-main: #333d50;
-  --bg-surface: #3c485e;
-  --bg-surface-elevated: #47556e;
-  --bg-card: rgba(60, 72, 94, 0.94);
-  --bg-card-hover: rgba(71, 85, 110, 0.98);
-  --bg-glass: rgba(51, 61, 80, 0.95);
+  /* Color Palette - Very Light Dark (Charcoal Slate) Luxury Aesthetic */
+  --bg-main: #1c2432;
+  --bg-surface: #242f40;
+  --bg-surface-elevated: #2e3b50;
+  --bg-card: rgba(36, 47, 64, 0.88);
+  --bg-card-hover: rgba(46, 59, 80, 0.96);
+  --bg-glass: rgba(28, 36, 50, 0.9);
   
-  --gold-primary: #e5b842;
-  --gold-glow: #ffd54f;
-  --gold-light: #fef08a;
-  --gold-dark: #b8861b;
-  --gold-gradient: linear-gradient(135deg, #fef08a 0%, #e5b842 50%, #b8861b 100%);
-  --gold-glow-shadow: 0 0 25px rgba(229, 184, 66, 0.4);
+  --gold-primary: #d4af37;
+  --gold-glow: #f3ce5e;
+  --gold-light: #fae8a4;
+  --gold-dark: #a67c1e;
+  --gold-gradient: linear-gradient(135deg, #f9e295 0%, #d4af37 50%, #aa7c11 100%);
+  --gold-glow-shadow: 0 0 25px rgba(212, 175, 55, 0.35);
 
   --accent-emerald: #10b981;
   --accent-cyan: #06b6d4;
   --accent-rose: #f43f5e;
   --accent-purple: #a855f7;
 
-  --text-primary: #ffffff;
-  --text-secondary: #f1f5f9;
-  --text-muted: #cbd5e1;
-  --text-gold: #ffd54f;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --text-gold: #f3ce5e;
 
-  --border-subtle: rgba(255, 255, 255, 0.2);
-  --border-gold: rgba(229, 184, 66, 0.5);
-  --border-gold-strong: rgba(229, 184, 66, 0.8);
+  --border-subtle: rgba(255, 255, 255, 0.12);
+  --border-gold: rgba(212, 175, 55, 0.35);
+  --border-gold-strong: rgba(212, 175, 55, 0.65);
 
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.15);
-  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.22);
-  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.3);
-  --shadow-glow: 0 0 30px rgba(229, 184, 66, 0.3);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 0 30px rgba(212, 175, 55, 0.22);
 
   /* Typography */
   --font-heading: 'Cinzel', serif;
@@ -235,7 +235,7 @@ button, input, select, textarea {
 }
 
 .site-header.scrolled {
-  background: rgba(8, 12, 20, 0.94);
+  background: rgba(28, 36, 50, 0.96);
   border-bottom-color: var(--border-gold);
   box-shadow: var(--shadow-md);
 }
@@ -706,12 +706,13 @@ button, input, select, textarea {
   bottom: 16px;
   right: 16px;
   padding: 6px 14px;
-  background: rgba(8, 12, 20, 0.88);
+  background: rgba(28, 36, 50, 0.92);
   border: 1px solid var(--border-gold);
   border-radius: var(--radius-md);
   font-weight: 700;
   color: var(--gold-light);
   font-size: 0.95rem;
+  box-shadow: var(--shadow-sm);
   backdrop-filter: blur(8px);
   z-index: 2;
 }
@@ -1472,7 +1473,7 @@ button, input, select, textarea {
    FOOTER
    ========================================================================== */
 .site-footer {
-  background: #05080e;
+  background: #151c27;
   border-top: 1px solid var(--border-subtle);
   padding: 80px 0 30px;
   position: relative;
