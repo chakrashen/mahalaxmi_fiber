@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Live B2B Wholesale Fabric Price Estimator - Mahalaxmi Textiles. Calculate custom meter rates, finishes, and volume discounts instantly." />
+  <title>B2B Wholesale Price Estimator | Mahalaxmi Textiles</title>
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧵</text></svg>" />
+  <style>
+    .estimator-page-hero {
+      padding: 70px 0 30px;
+      text-align: center;
+      background: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.08) 0%, transparent 60%);
+    }
+    .back-home-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--gold-light);
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      padding: 6px 16px;
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid var(--border-gold);
+      border-radius: var(--radius-full);
+      transition: all var(--transition-fast);
+    }
+    .back-home-link:hover {
+      background: rgba(212, 175, 55, 0.2);
+      transform: translateX(-4px);
+    }
+    .calculator-section.standalone {
+      border: none;
+      background: transparent;
+      padding: 20px 0 100px;
+    }
+    .volume-tier-guide {
+      margin-top: 50px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .tier-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      text-align: center;
+      transition: all var(--transition-normal);
+    }
+    .tier-card:hover {
+      border-color: var(--border-gold);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-glow);
+    }
+    .tier-discount-tag {
+      display: inline-block;
+      padding: 4px 12px;
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid var(--accent-emerald);
+      color: var(--accent-emerald);
+      border-radius: var(--radius-full);
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .tier-title {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+    }
+    .tier-desc {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================================================
+       STICKY HEADER / NAVIGATION
+       ======================================================================== -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <div class="logo-symbol">M</div>
+        <div class="logo-text">
+          <h1>MAHALAXMI</h1>
+          <span>TEXTILES • EST. 1994</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="index.html#categories">Categories</a></li>
+          <li><a href="index.html#about">The Mill</a></li>
+          <li><a href="index.html#quality">Certifications</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="index.html" class="btn btn-glass btn-sm">
+          <span>← Back to Home</span>
+        </a>
+        <a href="index.html#inquiry" class="btn btn-gold btn-sm">
+          <span>Request Swatches</span>
+        </a>
+        <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle Navigation">
+          ☰
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       PAGE HERO
+       ======================================================================== -->
+  <div class="estimator-page-hero">
+    <div class="container">
+      <a href="index.html" class="back-home-link">
+        <span>←</span>
+        <span>Back to Main Website</span>
+      </a>
+      <div class="section-tag">Direct Mill Pricing Engine</div>
+      <h1 class="section-title">Live B2B Wholesale <span class="gold-text">Price Estimator</span></h1>
+      <p class="section-subtitle" style="max-width: 680px; margin: 0 auto;">
+        Calculate transparent ex-mill pricing based on your custom weave selection, specialized post-processing treatments, and meter volume.
+      </p>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       STANDALONE ESTIMATOR SECTION
+       ======================================================================== -->
+  <main class="calculator-section standalone" id="calculator">
+    <div class="container">
+      <div class="calculator-wrapper">
+        <div class="calc-controls">
+          <div class="form-group">
+            <label class="form-label" for="calcFabricSelect">Select Fabric Quality</label>
+            <select id="calcFabricSelect" class="form-select">
+              <!-- Options populated by main.js -->
+            </select>
+          </div>
+
+          <div class="form-group range-slider-wrapper">
+            <div class="form-label">
+              <span>Required Meter Quantity</span>
+              <span id="calcMeterDisplay" class="slider-val-display">2,500 Meters</span>
+            </div>
+            <input 
+              type="range" 
+              id="calcMeterSlider" 
+              class="custom-range" 
+              min="500" 
+              max="20000" 
+              step="250" 
+              value="2500" 
+            />
+            <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">
+              <span>500m (MOQ)</span>
+              <span>2,000m (5% Off)</span>
+              <span>5,000m (10% Off)</span>
+              <span>10,000m+ (15% Off)</span>
+              <span>20,000m</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Special Processing / Finishing Treatment</label>
+            <div class="finish-options-grid">
+              <div class="finish-chip active" data-addon="0">Standard Bio-Wash</div>
+              <div class="finish-chip" data-addon="6">Silicone Soft Drape (+₹6/m)</div>
+              <div class="finish-chip" data-addon="10">Silk-Feel Mercerized (+₹10/m)</div>
+              <div class="finish-chip" data-addon="14">Water-Repellent / Scotchgard (+₹14/m)</div>
+            </div>
+          </div>
+
+          <div style="background: rgba(212, 175, 55, 0.05); border: 1px solid var(--border-gold); border-radius: var(--radius-md); padding: 18px;">
+            <h4 style="font-size: 0.85rem; color: var(--gold-light); font-weight: 700; margin-bottom: 6px;">💡 Need Custom Lab-Dips or Special Weaves?</h4>
+            <p style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5; margin: 0;">
+              For custom Pantone shade matching, customized reed/pick density, or special yarn blends above 5,000 meters, we provide free lab dip swatches within 48 hours.
+            </p>
+          </div>
+        </div>
+
+        <div class="calc-summary-card">
+          <div>
+            <h3 class="summary-title">Wholesale Quotation Breakdown</h3>
+            <div class="summary-rows">
+              <div class="summary-row">
+                <span style="color: var(--text-secondary);">Base Fabric Rate:</span>
+                <span class="val" id="sumBaseRate">₹82.00/m</span>
+              </div>
+              <div class="summary-row">
+                <span style="color: var(--text-secondary);">Quantity Selected:</span>
+                <span class="val" id="sumMeters">2,500m</span>
+              </div>
+              <div class="summary-row">
+                <span style="color: var(--text-secondary);">Finish Surcharge:</span>
+                <span class="val" id="sumFinishCost">Included</span>
+              </div>
+              <div class="summary-row">
+                <span style="color: var(--text-secondary);">Volume Tier Discount:</span>
+                <span class="val" id="sumDiscount"><span class="discount-badge">5% Volume Discount</span></span>
+              </div>
+              <div class="summary-row">
+                <span style="color: var(--text-secondary);">Estimated Lead Time:</span>
+                <span class="val" id="sumDeliveryDays">4-6 Days</span>
+              </div>
+              <div class="summary-row total">
+                <span>Estimated Total:</span>
+                <span id="sumEstimatedTotal">₹1,94,750</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <a href="#" id="calcWhatsAppBtn" target="_blank" class="btn btn-gold" style="width: 100%;">
+              <span>💬 Confirm & Lock Order on WhatsApp</span>
+            </a>
+            <div style="display: flex; gap: 10px; margin-top: 12px;">
+              <a href="index.html#inquiry" class="btn btn-outline-gold btn-sm" style="flex: 1;">
+                <span>📦 Request Swatches</span>
+              </a>
+              <a href="index.html#catalog" class="btn btn-glass btn-sm" style="flex: 1;">
+                <span>🔬 View Catalog</span>
+              </a>
+            </div>
+            <p style="font-size: 0.75rem; text-align: center; color: var(--text-muted); margin-top: 12px;">
+              *Ex-mill rates. GST & logistics calculated at dispatch.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Volume Tier Breakdown Cards -->
+      <div class="volume-tier-guide">
+        <div class="tier-card">
+          <span class="tier-discount-tag" style="background: rgba(255, 255, 255, 0.08); border-color: var(--border-subtle); color: var(--text-secondary);">Standard</span>
+          <h3 class="tier-title">500m – 1,999m</h3>
+          <p class="tier-desc">Standard wholesale ex-mill rate. Ideal for boutique collections and sample pilot runs.</p>
+        </div>
+        <div class="tier-card">
+          <span class="tier-discount-tag">5% OFF</span>
+          <h3 class="tier-title">2,000m – 4,999m</h3>
+          <p class="tier-desc">Popular with regional garment manufacturers. 4-6 days production lead time.</p>
+        </div>
+        <div class="tier-card">
+          <span class="tier-discount-tag">10% OFF</span>
+          <h3 class="tier-title">5,000m – 9,999m</h3>
+          <p class="tier-desc">High-volume production tier with complimentary customized lab dip development.</p>
+        </div>
+        <div class="tier-card">
+          <span class="tier-discount-tag">15% OFF</span>
+          <h3 class="tier-title">10,000m+</h3>
+          <p class="tier-desc">Export container tier with priority loom allocation & dedicated logistics dispatch.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ========================================================================
+       FOOTER
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <div class="logo-symbol">M</div>
+            <div class="logo-text">
+              <h1>MAHALAXMI</h1>
+              <span>TEXTILES • EST. 1994</span>
+            </div>
+          </div>
+          <p>
+            Setting gold standards in premium cotton, viscose rayon, discharge & digital printing, and fast vat dyeing for three decades.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Fabrics</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#catalog">60x60 Cambric Cotton</a></li>
+            <li><a href="index.html#catalog">14kg Slub Liva Rayon</a></li>
+            <li><a href="index.html#catalog">Royal Foil & Khari Print</a></li>
+            <li><a href="index.html#catalog">Vintage Discharge Print</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#about">The Manufacturing Mill</a></li>
+            <li><a href="index.html#quality">OEKO-TEX & GOTS</a></li>
+            <li><a href="index.html#inquiry">Request Swatch Kit</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Head Office & Mill</h4>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 12px;">
+            Plot 42-45, GIDC Industrial Estate, Sachin Textile Zone, Surat, Gujarat - 395230, India.
+          </p>
+          <p style="font-size: 0.88rem; color: var(--gold-light); font-weight: 600;">
+            📞 +91 98765 43210<br />
+            ✉️ exports@mahalaxmitextiles.com
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 Mahalaxmi Textiles Pvt. Ltd. All rights reserved.</div>
+        <div>Engineered for Fashion Houses, Garment Exporters & Boutique Retailers worldwide.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Action Button -->
+  <a 
+    href="https://wa.me/919876543210?text=Hello%20Mahalaxmi%20Textiles%2C%20I%20would%20like%20to%20inquire%20about%20your%20fabric%20collections%20and%20request%20swatches." 
+    target="_blank" 
+    class="floating-whatsapp" 
+    title="Direct WhatsApp RFQ"
+  >
+    💬
+  </a>
+
+  <!-- JavaScript -->
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -247,14 +247,15 @@ button, input, select, textarea {
 .nav-container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   height: 84px;
+  gap: 48px;
 }
 
 .brand-logo {
   display: flex;
   align-items: center;
   gap: 14px;
+  flex-shrink: 0;
 }
 
 .logo-symbol {
@@ -332,6 +333,7 @@ button, input, select, textarea {
   display: flex;
   align-items: center;
   gap: 16px;
+  margin-left: auto;
 }
 
 .mobile-nav-toggle {
