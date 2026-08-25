@@ -1,0 +1,20 @@
+{
+  "name": "mahalaxmi-textiles",
+  "version": "1.0.0",
+  "description": "Mahalaxmi Textiles - Luxury Fabric Manufacturer & B2B Showcase",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve -l 8088",
+    "start": "npx serve -l 8088",
+    "serve": "npx serve"
+  },
+  "keywords": [
+    "textiles",
+    "fabrics",
+    "b2b",
+    "wholesale",
+    "mahalaxmi"
+  ],
+  "author": "Mahalaxmi Textiles",
+  "license": "ISC"
+}
