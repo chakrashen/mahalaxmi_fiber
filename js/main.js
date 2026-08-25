@@ -144,6 +144,7 @@ let currentSearchQuery = '';
 
 // DOM Elements
 document.addEventListener('DOMContentLoaded', async () => {
+  initTheme();
   initNavbar();
   await loadFabricsData();
   renderCatalog();
@@ -153,6 +154,33 @@ document.addEventListener('DOMContentLoaded', async () => {
   initModal();
   initInquiryForm();
 });
+
+// Theme Toggle (Light / Dark)
+function initTheme() {
+  const savedTheme = localStorage.getItem('ml_theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+  updateThemeToggleIcons(savedTheme);
+
+  const themeToggles = document.querySelectorAll('.theme-toggle-btn');
+  themeToggles.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('ml_theme', next);
+      updateThemeToggleIcons(next);
+      showToast(next === 'light' ? '☀️ Light theme activated' : '🌙 Luxury dark theme activated');
+    });
+  });
+}
+
+function updateThemeToggleIcons(theme) {
+  const themeToggles = document.querySelectorAll('.theme-toggle-btn');
+  themeToggles.forEach(btn => {
+    btn.innerHTML = theme === 'light' ? '🌙' : '☀️';
+    btn.setAttribute('title', theme === 'light' ? 'Switch to Dark Theme' : 'Switch to Light Theme');
+  });
+}
 
 // Load fabrics data
 async function loadFabricsData() {
